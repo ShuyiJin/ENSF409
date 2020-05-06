@@ -1,0 +1,11 @@
+****************************************************************
+ORDER ID: 		70890
+Date Ordered: 		January 18, 2016
+
+Item Description: 	Nic Nacs
+Amount Ordered:		250
+Supplier: 		Knock Knock Inc.
+
+Item Description: 	Twinkies
+Amount Ordered:		50
+Supplier: 		Twinkles Inc.
