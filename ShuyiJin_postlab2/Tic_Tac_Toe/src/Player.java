@@ -79,6 +79,13 @@ public class Player implements Constants{
 		int row = Integer.parseInt(scan.nextLine());
 		System.out.println("Please enter column");
 		int col = Integer.parseInt(scan.nextLine());
+		while(board.getMark(row, col) != SPACE_CHAR) {
+			System.out.println("Space is already filled! Please try again.");
+			System.out.println("Please enter row");
+			row = Integer.parseInt(scan.nextLine());
+			System.out.println("Please enter column");
+			col = Integer.parseInt(scan.nextLine());
+		}
 		board.addMark(row, col, mark);
 	}
 	
