@@ -14,7 +14,7 @@ public class BlockingPlayer extends RandomPlayer{
 	}
 	
 	public void statement() {
-		System.out.println("Blocking player playing:");
+		System.out.println("Blocking Player " + this.name + " playing:");
 	}
 	
 	public void makeMove() {
@@ -31,19 +31,19 @@ public class BlockingPlayer extends RandomPlayer{
 	}
 	
 	public boolean testForBlocking(int row, int col) {
-		if(testRow(row)) return true;
-		else if(testColumn(col)) return true;
+		if(testRow(row, this.opponent.getMark())) return true;
+		else if(testColumn(col, this.opponent.getMark())) return true;
 		else if(row == col || (row + col) == 2) {
-			return testDiagonal(row, col);
+			return testDiagonal(row, col, this.opponent.getMark());
 		}
 		else
 			return false;
 	}
 	
-	public boolean testColumn(int col) {
+	public boolean testColumn(int col, char mark) {
 		int count = 0;
 		for (int i = 0; i < 3; i++) {
-			if(board.getMark(i, col) == opponent.getMark()) {
+			if(board.getMark(i, col) == mark) {
 				count++;
 				if(count == 2) return true;
 			}
@@ -51,10 +51,10 @@ public class BlockingPlayer extends RandomPlayer{
 		return false;
 	}
 	
-	public boolean testRow(int row) {
+	public boolean testRow(int row, char mark) {
 		int count = 0;
 		for (int i = 0; i < 3; i++) {
-			if(board.getMark(row, i) == opponent.getMark()) {
+			if(board.getMark(row, i) == mark) {
 				count++;
 				if(count == 2) return true;
 			}
@@ -62,17 +62,17 @@ public class BlockingPlayer extends RandomPlayer{
 		return false;
 	}
 	
-	public boolean testDiagonal(int row, int col) {
+	public boolean testDiagonal(int row, int col, char mark) {
 		int count = 0;
 		for (int i = 0; i < 3; i++) {
 			if(row == col) {
-				if(board.getMark(i, i) == opponent.getMark()) {
+				if(board.getMark(i, i) == mark) {
 					count++;
 					if(count == 2) return true;
 				}
 			}
 			else {
-				if(board.getMark(i, 2-i) == opponent.getMark()) {
+				if(board.getMark(i, 2-i) == mark) {
 					count++;
 					if(count == 2) return true;
 				}
