@@ -32,53 +32,12 @@ public class SmartPlayer extends BlockingPlayer{
 	}
 	
 	public boolean testForWinning(int row, int col) {
-		if(testRow(row)) return true;
-		else if(testColumn(col)) return true;
+		if(testRow(row, this.mark)) return true;
+		else if(testColumn(col, this.mark)) return true;
 		else if(row == col || (row + col) == 2) {
-			return testDiagonal(row, col);
+			return testDiagonal(row, col, this.mark);
 		}
 		else
 			return false;
-	}
-	
-	public boolean testColumn(int col) {
-		int count = 0;
-		for (int i = 0; i < 3; i++) {
-			if(board.getMark(i, col) == mark) {
-				count++;
-				if(count == 2) return true;
-			}
-		}
-		return false;
-	}
-	
-	public boolean testRow(int row) {
-		int count = 0;
-		for (int i = 0; i < 3; i++) {
-			if(board.getMark(row, i) == mark) {
-				count++;
-				if(count == 2) return true;
-			}
-		}
-		return false;
-	}
-	
-	public boolean testDiagonal(int row, int col) {
-		int count = 0;
-		for (int i = 0; i < 3; i++) {
-			if(row == col) {
-				if(board.getMark(i, i) == mark) {
-					count++;
-					if(count == 2) return true;
-				}
-			}
-			else {
-				if(board.getMark(i, 2-i) == mark) {
-					count++;
-					if(count == 2) return true;
-				}
-			}
-		}
-		return false;
 	}
 }
