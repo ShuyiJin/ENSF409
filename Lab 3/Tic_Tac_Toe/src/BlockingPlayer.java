@@ -13,11 +13,15 @@ public class BlockingPlayer extends RandomPlayer{
 		super(name, mark);
 	}
 	
+	public void statement() {
+		System.out.println("Blocking player playing:");
+	}
+	
 	public void makeMove() {
-		System.out.println("Blocking Player playing:");
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				if((board.getMark(i, j) == SPACE_CHAR) && this.testForBlocking(i, j)) {
+					this.statement();
 					board.addMark(i, j, mark);
 					return;
 				}
