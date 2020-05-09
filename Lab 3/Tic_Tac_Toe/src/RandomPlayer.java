@@ -12,6 +12,10 @@ public class RandomPlayer extends Player {
 	public RandomPlayer() {
 		super();
 	}
+	
+	public void statement() {
+		System.out.println("Random player playing:");
+	}
 
 	public void makeMove() {
 		RandomGenerator ran = new RandomGenerator(); 
@@ -20,6 +24,7 @@ public class RandomPlayer extends Player {
 			row = ran.discrete(0, 2);
 			col = ran.discrete(0, 2);
 		}while(board.getMark(row, col) != SPACE_CHAR); 
+		this.statement();
 		board.addMark(row, col, mark);
 	}
 }
