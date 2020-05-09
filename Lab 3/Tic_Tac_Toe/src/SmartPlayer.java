@@ -15,7 +15,7 @@ public class SmartPlayer extends BlockingPlayer{
 	}
 	
 	public void statement() {
-		System.out.println("Smart player playing:");
+		System.out.println( "Smart player " + this.name + " playing:");
 	}
 	
 	public void makeMove() {
