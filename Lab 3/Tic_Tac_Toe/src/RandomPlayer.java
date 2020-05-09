@@ -14,7 +14,7 @@ public class RandomPlayer extends Player {
 	}
 	
 	public void statement() {
-		System.out.println("Random player playing:");
+		System.out.println("Random player " + this.name + " playing:");
 	}
 
 	public void makeMove() {
