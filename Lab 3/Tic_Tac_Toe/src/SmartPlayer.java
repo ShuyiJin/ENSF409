@@ -14,11 +14,15 @@ public class SmartPlayer extends BlockingPlayer{
 		super();
 	}
 	
+	public void statement() {
+		System.out.println("Smart player playing:");
+	}
+	
 	public void makeMove() {
-		System.out.println("Smart Player playing:");
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				if((board.getMark(i, j) == SPACE_CHAR) && this.testForWinning(i, j)) {
+					this.statement();
 					board.addMark(i, j, mark);
 					return;
 				}
