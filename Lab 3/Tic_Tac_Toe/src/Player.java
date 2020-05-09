@@ -54,23 +54,17 @@ abstract class Player implements Constants{
 	 * The player's turn to play the game. End the game if anyone wins or there is a tie.
 	 */
 	public void play() {
-		if(board.xWins()) {
-			System.out.println("THE GAME IS OVER!" + opponent.name + " is the winner!");
+		if(board.xWins() || board.oWins()) {
+			System.out.println("THE GAME IS OVER! " + opponent.name + " is the winner!");
 			System.exit(0);
 		}
-		else if(board.oWins()) {
-			System.out.println("THE GAME IS OVER!" + opponent.name + " is the winner!");
-			System.exit(0);
-		}
-		else if(board.isFull()) {
+		if(board.isFull()) {
 			System.out.println("It's a tie! Game ends.");
 			System.exit(0);
 		} 
-		else {
-			this.makeMove();
-			board.display();
-			opponent.play();
-		}
+		this.makeMove();
+		board.display();
+		opponent.play();
 	}
 	
 	public char getMark() {
